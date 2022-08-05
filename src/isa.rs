@@ -13,6 +13,15 @@ pub trait InstructionSet {
 
 }
 
+pub trait ArchitecturalState {
+    /// Some type identifying the unique architectural registers.
+    type RegType;
+
+    /// Some type identifying the unique physical memory devices.
+    type MemType;
+}
+
+
 /// Interface to an assembler for the instruction set.
 pub trait Assembler: InstructionSet {
     /// Encode an instruction.

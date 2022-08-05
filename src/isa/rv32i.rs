@@ -392,6 +392,7 @@ impl Rv32 {
     }
 }
 
+
 impl InstructionSet for Rv32 {
     type Encoding = u32;
     type Inst     = Instr;
@@ -470,5 +471,23 @@ impl InstructionSet for Rv32 {
         }
     }
 }
+
+pub enum Rv32Reg {
+    Zero,
+    Gpr(usize),
+}
+pub enum Rv32Mem {
+}
+
+pub struct Rv32State {
+    gpr: [u32; 32],
+}
+impl ArchitecturalState for Rv32State {
+    type RegType = Rv32Reg;
+    type MemType = Rv32Mem;
+}
+
+
+
 
 
